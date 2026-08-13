@@ -1,4 +1,3 @@
-manifestVersion: 1
 name: bugbot
 description: Cursor Bugbot PR-review workflow — clean up, triage, and babysit bugbot findings
 

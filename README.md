@@ -1,4 +1,4 @@
-# Bugbot (Barry Pack)
+# Bugbot (Barry bag)
 
 Cursor Bugbot PR-review workflow — clean up, triage, and babysit bugbot findings.
 
