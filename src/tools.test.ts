@@ -1,8 +1,13 @@
 import { describe, it, expect } from "vitest";
+import type { ToolDefinition } from "./define-tool.js";
 import * as tools from "./tools.js";
 
-const allTools = Object.values(tools).filter(
-  (v): v is { name: string; namespace: string; handler: Function; description: string } =>
+// Object.values() over a module namespace yields a union of every export
+// (tools, but also re-exported classes), and a type predicate must be
+// assignable to its parameter type. Widening to unknown first lets us narrow
+// to just the tool definitions without naming that union.
+const allTools = (Object.values(tools) as unknown[]).filter(
+  (v): v is ToolDefinition & { handler: (args: never) => unknown } =>
     typeof v === "object" && v !== null && "name" in v && "handler" in v,
 );
 
